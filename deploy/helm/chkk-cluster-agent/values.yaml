@@ -4,13 +4,13 @@
 
 image:
   repository: public.ecr.aws/j8z4q9j4/chkk-kontext
-  tag: latest
+  tag: v1.0.19
   pullPolicy: IfNotPresent
 
 manager:
   image:
     repository: public.ecr.aws/j8z4q9j4/chkk-cluster-agent-manager
-    tag: latest
+    tag: v1.0.19
     pullPolicy: IfNotPresent
   resources:
     limits:
@@ -24,7 +24,7 @@ secret:
   chkkAccessToken: CHKK-ACCESS-TOKEN
 
 cronjob:
-  schedule: "0 */12 * * *" 
+  schedule: "0 */12 * * *"
 
 config:
   enabled: true
