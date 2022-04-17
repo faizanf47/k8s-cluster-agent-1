@@ -4,7 +4,7 @@ metadata:
   name: chkk-system
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
 ---
 apiVersion: v1
 kind: ServiceAccount
@@ -15,7 +15,7 @@ metadata:
     app.kubernetes.io/name: chkk-cluster-context-cronjob
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
   name: chkk-cluster-context-cronjob
   namespace: chkk-system
 ---
@@ -28,7 +28,7 @@ metadata:
     app.kubernetes.io/name: chkk-cluster-context-cronjob
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
   name: chkk-cluster-context-cronjob
 rules:
   - apiGroups:
@@ -106,7 +106,7 @@ metadata:
     app.kubernetes.io/name: chkk-cluster-context-cronjob
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
   name: chkk-cluster-context-cronjob
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -141,7 +141,7 @@ metadata:
     app.kubernetes.io/name: chkk-cluster-context-cronjob
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
   name: chkk-cluster-context-cronjob
   namespace: chkk-system
 ---
@@ -154,7 +154,7 @@ metadata:
     app.kubernetes.io/name: chkk-cluster-context-cronjob
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
   name: chkk-cluster-context-cronjob
   namespace: chkk-system
 ---
@@ -167,7 +167,7 @@ metadata:
     app.kubernetes.io/name: chkk-cluster-context-cronjob
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
   name: chkk-cluster-context-cronjob
   namespace: chkk-system
 spec:
@@ -178,7 +178,7 @@ spec:
         app.kubernetes.io/name: chkk-cluster-context-cronjob
       annotations:
         chkk.io/name: Availability Guard
-        chkk.io/version: v1.0.18
+        chkk.io/version: v1.0.19
     spec:
       template:
         metadata:
@@ -187,7 +187,7 @@ spec:
             app.kubernetes.io/name: chkk-cluster-context-cronjob
           annotations:
             chkk.io/name: Availability Guard
-            chkk.io/version: v1.0.18
+            chkk.io/version: v1.0.19
         spec:
           automountServiceAccountToken: true
           containers:
@@ -197,7 +197,7 @@ spec:
                     secretKeyRef:
                       key: CHKK_ACCESS_TOKEN
                       name: chkk-access-token
-              image: public.ecr.aws/j8z4q9j4/chkk-kontext:latest
+              image: public.ecr.aws/j8z4q9j4/chkk-kontext:v1.0.19
               imagePullPolicy: Always
               name: chkk-cluster-context-cronjob
               resources:
@@ -236,7 +236,7 @@ kind: Deployment
 metadata:
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
   labels:
     app.kubernetes.io/instance: chkk-cluster-agent-manager
     app.kubernetes.io/managed-by: kubectl
@@ -252,33 +252,33 @@ spec:
     metadata:
       annotations:
         chkk.io/name: Availability Guard
-        chkk.io/version: v1.0.18
+        chkk.io/version: v1.0.19
       labels:
         app.kubernetes.io/name: chkk-cluster-agent-manager
     spec:
       automountServiceAccountToken: true
       containers:
-      - env:
-        - name: CHKK_ACCESS_TOKEN
-          valueFrom:
-            secretKeyRef:
-              key: CHKK_ACCESS_TOKEN
-              name: chkk-access-token
-        image: public.ecr.aws/j8z4q9j4/chkk-cluster-agent-manager:latest
-        imagePullPolicy: Always
-        name: chkk-cluster-agent-manager
-        resources:
-          limits:
-            cpu: 50m
-            memory: 128Mi
-          requests:
-            cpu: 50m
-            memory: 128Mi
-        securityContext:
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-            - ALL
+        - env:
+            - name: CHKK_ACCESS_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: CHKK_ACCESS_TOKEN
+                  name: chkk-access-token
+          image: public.ecr.aws/j8z4q9j4/chkk-cluster-agent-manager:v1.0.19
+          imagePullPolicy: Always
+          name: chkk-cluster-agent-manager
+          resources:
+            limits:
+              cpu: 50m
+              memory: 128Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
       restartPolicy: Always
       securityContext:
         runAsNonRoot: true
@@ -296,7 +296,7 @@ metadata:
     app.kubernetes.io/name: chkk-cluster-context-firstscan-job
   annotations:
     chkk.io/name: Availability Guard
-    chkk.io/version: v1.0.18
+    chkk.io/version: v1.0.19
   name: chkk-cluster-context-firstscan-job
   namespace: chkk-system
 spec:
@@ -307,7 +307,7 @@ spec:
         app.kubernetes.io/name: chkk-cluster-context-firstscan-job
       annotations:
         chkk.io/name: Availability Guard
-        chkk.io/version: v1.0.18
+        chkk.io/version: v1.0.19
     spec:
       automountServiceAccountToken: true
       containers:
@@ -317,7 +317,7 @@ spec:
                 secretKeyRef:
                   key: CHKK_ACCESS_TOKEN
                   name: chkk-access-token
-          image: public.ecr.aws/j8z4q9j4/chkk-kontext:latest
+          image: public.ecr.aws/j8z4q9j4/chkk-kontext:v1.0.19
           imagePullPolicy: Always
           name: chkk-cluster-context-firstscan-job
           resources:
