@@ -87,3 +87,10 @@ Create the name of the secret account to use
 {{- define "chkk-cluster-agent.secretName" -}}
 {{ include "chkk-cluster-agent.fullname" . }}
 {{- end }}
+
+{{/*
+CronJob labels
+*/}}
+{{- define "chkk-cluster-agent.cronjobLabels" -}}
+chkk.io/name: chkk-cluster-agent
+{{- end }}
